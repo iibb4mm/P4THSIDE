@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>P4THSIDE | Roblox Map Community</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#000;color:#fff;font:400 16px/1.7 Montserrat,system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+:root{--glow:#7fd0ff}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+#bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:-3;filter:saturate(.85) contrast(1.05)}
+.shade{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at center,rgba(0,0,0,.25) 0%,rgba(0,0,0,.85) 100%),rgba(0,0,0,.35)}
+.bars::before,.bars::after{content:"";position:fixed;left:0;right:0;height:5vh;background:#000;z-index:8}
+.bars::before{top:0}.bars::after{bottom:0}
+nav{position:fixed;top:5vh;left:0;right:0;z-index:6;display:flex;justify-content:space-between;align-items:center;padding:16px 6vw}
+nav .logo{font:400 28px "Bebas Neue",sans-serif;letter-spacing:.25em;text-shadow:0 0 8px var(--glow),0 0 20px var(--glow)}
+nav div{display:flex;gap:30px;font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase}
+nav div a{opacity:.7;transition:opacity .2s}
+nav div a:hover{opacity:1}
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 6vw 80px}
+.hero>*{animation:rise 1.6s ease both}
+.hero .sub{animation-delay:.5s}.hero .btns{animation-delay:.9s}.hero .info{animation-delay:1.2s}
+@keyframes rise{from{opacity:0;letter-spacing:.3em;filter:blur(8px)}to{opacity:1;filter:none}}
+.hero h1{font:400 clamp(60px,15vw,190px)/.95 "Bebas Neue",sans-serif;letter-spacing:.12em;color:#fff;text-shadow:0 0 6px #fff,0 0 18px var(--glow),0 0 42px var(--glow),0 0 90px var(--glow);animation:rise 1.6s ease both,glow 3.5s ease-in-out 1.6s infinite alternate}
+@keyframes glow{from{text-shadow:0 0 5px #fff,0 0 14px var(--glow),0 0 32px var(--glow),0 0 64px var(--glow)}to{text-shadow:0 0 8px #fff,0 0 24px var(--glow),0 0 56px var(--glow),0 0 120px var(--glow)}}
+.hero .sub{margin:18px 0 36px;letter-spacing:.55em;font-size:13px;opacity:.8;text-transform:uppercase}
+.btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.btn{padding:14px 32px;border:1px solid rgba(255,255,255,.8);font-size:12px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;transition:.25s}
+.btn.fill{background:#fff;color:#000}
+.btn:hover{background:#fff;color:#000}
+.btn.fill:hover{background:transparent;color:#fff}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;max-width:900px;width:100%;margin-top:80px;border-top:1px solid rgba(255,255,255,.3)}
+.info div{padding:24px 20px;text-align:left;border-right:1px solid rgba(255,255,255,.15)}
+.info div:last-child{border-right:0}
+.info h2{font-size:11px;letter-spacing:.4em;opacity:.55;font-weight:600}
+.info h3{font:400 30px "Bebas Neue",sans-serif;letter-spacing:.1em}
+.info p{font-size:13px;opacity:.7}
+section{max-width:960px;margin:auto;padding:100px 6vw}
+h2.t{font:400 clamp(36px,6vw,64px) "Bebas Neue",sans-serif;letter-spacing:.2em;margin-bottom:26px}
+.about{max-width:60ch;opacity:.85}
+.vid{width:100%;aspect-ratio:21/9;background:#0a0a0a;object-fit:cover;border:1px solid rgba(255,255,255,.2)}
+.links{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+footer{text-align:center;padding:50px 6vw 12vh;font-size:12px;opacity:.55;letter-spacing:.25em}
+#music{position:fixed;right:18px;bottom:calc(5vh + 14px);z-index:9;background:rgba(0,0,0,.6);color:#fff;border:1px solid #fff;padding:10px 18px;font:700 12px Montserrat,sans-serif;letter-spacing:.2em;cursor:pointer}
+#music[aria-pressed="true"]{background:#fff;color:#000}
+@media(max-width:560px){nav div{gap:14px;font-size:10px;letter-spacing:.15em}.info div{border-right:0;border-bottom:1px solid rgba(255,255,255,.15)}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero>*,.hero h1{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body class="bars">
+<!-- Taruh background.mp4 dan music.mp3 di folder yang sama -->
+<video id="bg" src="background.mp4" autoplay muted loop playsinline></video>
+<div class="shade"></div>
+<audio id="bgm" src="music.mp3" loop></audio>
+
+<nav>
+  <a class="logo" href="#top">P4THSIDE</a>
+  <div><a href="#about">About</a><a href="#maps">Maps</a><a href="#social">Social</a></div>
+</nav>
+
+<main id="top">
+  <div class="hero">
+    <h1>P4THSIDE</h1>
+    <p class="sub">Roblox Map Community</p>
+    <div class="btns">
+      <a class="btn fill" data-link="discord" target="_blank" rel="noopener">Join Discord</a>
+      <a class="btn" data-link="map" target="_blank" rel="noopener">Main Map</a>
+    </div>
+    <div class="info">
+      <div><h2>ROBLOX MAP</h2><h3>STORE UK</h3><p>Toko di atas, underground di bawah</p></div>
+      <div><h2>MUSIC</h2><h3>DRILL</h3><p>Hip hop &amp; mixtape</p></div>
+      <div><h2>COMMUNITY</h2><h3>MEMBER</h3><p>Terbuka untuk semua pemain</p></div>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2 class="t">ABOUT</h2>
+    <p class="about">P4THSIDE adalah komunitas dan map Roblox bertema store ala UK. Di atas ada toko, di bawahnya ada area underground tempat nongkrong dan dengar musik. Vibe-nya UK drill, hip hop, dan mixtape. Masuk, jelajahi, dan gabung bareng member lain di Discord.</p>
+  </section>
+
+  <section id="maps">
+    <h2 class="t">FEATURED MAPS</h2>
+    <video class="vid" src="background.mp4" controls muted playsinline></video>
+    <div class="links">
+      <a class="btn fill" data-link="map" target="_blank" rel="noopener">Main di Roblox</a>
+    </div>
+  </section>
+
+  <section id="social">
+    <h2 class="t">SOCIALS</h2>
+    <div class="links" style="margin-top:0">
+      <a class="btn" data-link="discord" target="_blank" rel="noopener">Discord</a>
+      <a class="btn" data-link="socialbuzz" target="_blank" rel="noopener">Socialbuzz</a>
+      <a class="btn" data-link="map" target="_blank" rel="noopener">Map Roblox</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 P4THSIDE</footer>
+<button id="music" aria-pressed="false">🎵 MUSIC</button>
+
+<script>
+/* ===== GANTI LINK DI SINI ===== */
+const LINKS = {
+  discord:    "https://discord.gg/gGftYQ4tu",
+  socialbuzz: "https://sociabuzz.com/p4thside",
+  map:        "https://www.roblox.com/share/g/723850493"
+};
+/* ============================== */
+document.querySelectorAll('[data-link]').forEach(a=>{a.href=LINKS[a.dataset.link]||'#';});
+
+const bgm=document.getElementById('bgm'),btn=document.getElementById('music');
+btn.addEventListener('click',()=>{
+  if(bgm.paused){bgm.play().then(()=>btn.setAttribute('aria-pressed','true')).catch(()=>{});}
+  else{bgm.pause();btn.setAttribute('aria-pressed','false');}
+});
+</script>
+</body>
+</html>
